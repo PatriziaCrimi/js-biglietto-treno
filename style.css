@@ -32,6 +32,12 @@ p {
   background: linear-gradient(149deg, rgba(47,184,203,1) 15%, rgba(28,53,213,1) 100%);
 }
 
+p#descount-rate {
+  color: #ED918E;
+  font-weight: 700;
+  text-shadow: 1px 1px #B40404;
+}
+
 h2#user-info::before {
   content: '\f2bd';
 }

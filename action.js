@@ -15,18 +15,24 @@ console.log('The \'user_age\' data is a ' + typeof(user_age) + '.');
 // Regular fare
 var ticket_price = (fare_per_km * trip_length);
 
-if (user_age < 18) {
-  // Minor descount fare
-  ticket_price = ((ticket_price * minor_descount_rate) / 100);
-  console.log('The user is a Minor and receives a ' + minor_descount_rate + '% reduction on the regular fare.')
-} else if (user_age > 65) {
-  // Senior descount fare
-  ticket_price = ((ticket_price * senior_descount_rate) / 100);
-  console.log('The user is a Senior and receives a ' + senior_descount_rate + '% reduction on the regular fare.')
+if (!isNaN(user_age) && !isNaN(trip_length)) {
+  if (user_age < 18) {
+    // Minor descount fare
+    ticket_price = ((ticket_price * minor_descount_rate) / 100);
+    console.log('The user is a Minor and receives a ' + minor_descount_rate + '% reduction on the regular fare.')
+  } else if (user_age > 65) {
+    // Senior descount fare
+    ticket_price = ((ticket_price * senior_descount_rate) / 100);
+    console.log('The user is a Senior and receives a ' + senior_descount_rate + '% reduction on the regular fare.')
+  } else {
+    // Regular fare message
+    console.log('The user has no reduction on the regular fare.');
+  }
 } else {
-  // Regular fare message
-  console.log('The user has no reduction on the regular fare.');
+  // Error message
+  console.log('ERROR: Invalid value was entered for the user\'s age and/or the trip distance.');
 }
+
 
 // ******************** Output in Console ********************
 
@@ -44,13 +50,22 @@ document.getElementById('trip-length').innerHTML = trip_length;
 document.getElementById('ticket-price').innerHTML = ticket_price;
 
 // Further information about the ticket fare
-if (user_age < 18) {
-  console.log('CONGRATULATIONS! Because of your age, you receive a ' + minor_descount_rate + '% reduction on this regular fare.');
-  document.getElementById('descount-rate').innerHTML = ('CONGRATULATIONS! Because of your age, you receive a ' + minor_descount_rate + '% reduction on this regular fare.');
-} else if (user_age > 65) {
-  console.log('CONGRATULATIONS! Because of your age, you receive a ' + senior_descount_rate + '% reduction on this regular fare.')
-  document.getElementById('descount-rate').innerHTML = ('CONGRATULATIONS! Because of your age, you receive a ' + senior_descount_rate + '% reduction on this regular fare.');
+if (!isNaN(user_age) && !isNaN(trip_length)) {
+  if (user_age < 18) {
+    // Minor descount message
+    console.log('CONGRATULATIONS! Because of your age, you receive a ' + minor_descount_rate + '% reduction on this regular fare.');
+    document.getElementById('descount-rate').innerHTML = ('CONGRATULATIONS! Because of your age, you receive a ' + minor_descount_rate + '% reduction on this regular fare.');
+  } else if (user_age > 65) {
+    // Senior descount message
+    console.log('CONGRATULATIONS! Because of your age, you receive a ' + senior_descount_rate + '% reduction on this regular fare.')
+    document.getElementById('descount-rate').innerHTML = ('CONGRATULATIONS! Because of your age, you receive a ' + senior_descount_rate + '% reduction on this regular fare.');
+  } else {
+    // No descount message
+    console.log('Unfortunately there are no reductions on this regular fare for yor age group.');
+    document.getElementById('descount-rate').innerHTML = ('Unfortunately there are no reductions on this regular fare for yor age group.');
+  }
 } else {
-  console.log('Unfortunately there are no reductions on this regular fare for yor age group.');
-  document.getElementById('descount-rate').innerHTML = ('Unfortunately there are no reductions on this regular fare for yor age group.');
+  // Error message
+  console.log('ERROR: Invalid value was entered for the user\'s age and/or the trip distance.');
+  document.getElementById('descount-rate').innerHTML = ('ERROR: Invalid value was entered for your age and/or your trip distance.');
 }
