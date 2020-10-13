@@ -3,7 +3,54 @@ body {
 }
 
 h1 {
-  color: green;
+  color: #CEF6F5;
   font-weight: 800;
   text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 3px 3px #0000FF;
+  padding: 40px 0 20px;
+}
+
+h2 {
+  color: #A9F5F2;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px #0000FF;
+  padding: 20px 0 10px;
+}
+
+p {
+  color: #A9F5F2;
+  font-size: 18px;
+  padding: 5px 0 5px 20px;
+}
+
+#page-wrapper {
+  height: 100vh;
+  width: 100vw;
+  background: rgb(47,184,203);
+  background: linear-gradient(149deg, rgba(47,184,203,1) 15%, rgba(28,53,213,1) 100%);
+}
+
+h2#user-info::before {
+  content: '\f2bd';
+}
+
+h2#ticket-info::before {
+  content: '\f3ff';
+}
+
+p#descount-rate::before {
+  content: '\f0f3';
+  font-size: 28px;
+}
+
+h2#user-info::before,
+h2#ticket-info::before,
+p#descount-rate::before {
+  font-weight: 700;
+  font-family: "Font Awesome 5 Free";
+  color: #361ACD;
+  padding-right: 10px;
+  text-shadow: 1px 1px #A9F5F2;
 }

@@ -24,10 +24,12 @@ if (user_age < 18) {
   ticket_price = ((ticket_price * senior_descount_rate) / 100);
   console.log('The user is a Senior and receives a ' + senior_descount_rate + '% reduction on the regular fare.')
 } else {
+  // Regular fare message
   console.log('The user has no reduction on the regular fare.');
 }
 
 // ******************** Output in Console ********************
+
 // Train Ticket Information
 console.log('********* TRAIN TICKET INFORMATION *********')
 console.log('The fare per kilometer is ' + fare_per_km + ' €.');
@@ -35,12 +37,20 @@ console.log('The user\'s trip distance is ' + trip_length + ' kilometers.');
 console.log('The user\'s age is ' + user_age + '.');
 console.log('The ticket price for this trip is ' + ticket_price + ' €.');
 
+// ******************** Output in HTML ********************
+document.getElementById('user-age').innerHTML = user_age;
+document.getElementById('fare-per-km').innerHTML = fare_per_km;
+document.getElementById('trip-length').innerHTML = trip_length;
+document.getElementById('ticket-price').innerHTML = ticket_price;
+
+// Further information about the ticket fare
 if (user_age < 18) {
-  console.log('CONGRATULATIONS! Because of your age, you receive a ' + minor_descount_rate + '% reduction on this regular fare.')
+  console.log('CONGRATULATIONS! Because of your age, you receive a ' + minor_descount_rate + '% reduction on this regular fare.');
+  document.getElementById('descount-rate').innerHTML = ('CONGRATULATIONS! Because of your age, you receive a ' + minor_descount_rate + '% reduction on this regular fare.');
 } else if (user_age > 65) {
   console.log('CONGRATULATIONS! Because of your age, you receive a ' + senior_descount_rate + '% reduction on this regular fare.')
+  document.getElementById('descount-rate').innerHTML = ('CONGRATULATIONS! Because of your age, you receive a ' + senior_descount_rate + '% reduction on this regular fare.');
 } else {
   console.log('Unfortunately there are no reductions on this regular fare for yor age group.');
+  document.getElementById('descount-rate').innerHTML = ('Unfortunately there are no reductions on this regular fare for yor age group.');
 }
-
-// ******************** Output in HTML ********************
