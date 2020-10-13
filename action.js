@@ -33,7 +33,6 @@ if (!isNaN(user_age) && !isNaN(trip_length)) {
   console.log('ERROR: Invalid value was entered for the user\'s age and/or the trip distance.');
 }
 
-
 // ******************** Output in Console ********************
 
 // Train Ticket Information
