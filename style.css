@@ -61,7 +61,7 @@ h2#ticket-info::before {
   padding-right: 10px;
 }
 
-p#descount-rate::before {
+p#discount-rate::before {
   content: '\f0f3';
   font-size: 28px;
   padding-right: 5px;
@@ -69,7 +69,7 @@ p#descount-rate::before {
 
 h2#user-info::before,
 h2#ticket-info::before,
-p#descount-rate::before {
+p#discount-rate::before {
   font-weight: 700;
   font-family: "Font Awesome 5 Free";
   color: #361ACD;
@@ -80,8 +80,8 @@ p#descount-rate::before {
   margin: 20px 0;
 }
 
-.further-info p#descount-rate,
-.further-info p#descount-to-apply {
+.further-info p#discount-rate,
+.further-info p#discount-to-apply {
   color: #ED918E;
   font-weight: 700;
   text-shadow: 1px 1px #B40404;
@@ -92,7 +92,7 @@ p#descount-rate::before {
   justify-content: center;
 }
 
-.further-info p#descount-to-apply {
+.further-info p#discount-to-apply {
   text-decoration: underline;
 }
 
