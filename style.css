@@ -80,7 +80,8 @@ p#descount-rate::before {
   margin: 20px 0;
 }
 
-.further-info p#descount-rate {
+.further-info p#descount-rate,
+.further-info p#descount-to-apply {
   color: #ED918E;
   font-weight: 700;
   text-shadow: 1px 1px #B40404;
@@ -89,6 +90,10 @@ p#descount-rate::before {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.further-info p#descount-to-apply {
+  text-decoration: underline;
 }
 
 /******************** Media Query *********************/

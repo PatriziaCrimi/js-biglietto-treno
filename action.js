@@ -18,12 +18,14 @@ var ticket_price = (fare_per_km * trip_length);
 if (!isNaN(user_age) && !isNaN(trip_length)) {
   if (user_age < 18) {
     // Minor descount fare
-    ticket_price = ((ticket_price * minor_descount_rate) / 100);
-    console.log('The user is a Minor and receives a ' + minor_descount_rate + '% reduction on the regular fare.')
+    var descount = ((ticket_price * minor_descount_rate) / 100);
+    ticket_price = ticket_price - descount;
+    console.log('The user is a Minor and receives a ' + minor_descount_rate + '% reduction on the regular fare.');
   } else if (user_age > 65) {
     // Senior descount fare
-    ticket_price = ((ticket_price * senior_descount_rate) / 100);
-    console.log('The user is a Senior and receives a ' + senior_descount_rate + '% reduction on the regular fare.')
+    var descount = ((ticket_price * senior_descount_rate) / 100);
+    ticket_price = ticket_price - descount;
+    console.log('The user is a Senior and receives a ' + senior_descount_rate + '% reduction on the regular fare.');
   } else {
     // Regular fare message
     console.log('The user has no reduction on the regular fare.');
@@ -40,7 +42,8 @@ console.log('********* TRAIN TICKET INFORMATION *********')
 console.log('The fare per kilometer is ' + fare_per_km + ' €.');
 console.log('The user\'s trip distance is ' + trip_length + ' kilometers.');
 console.log('The user\'s age is ' + user_age + '.');
-console.log('The ticket price for this trip is ' + ticket_price + ' €.');
+console.log('The descount on this train ticket is ' + descount + ' €.');
+console.log('The final price for this trip is ' + ticket_price + ' €.');
 
 // ******************** Output in HTML ********************
 document.getElementById('user-age').innerHTML = user_age;
@@ -54,10 +57,12 @@ if (!isNaN(user_age) && !isNaN(trip_length)) {
     // Minor descount message
     console.log('CONGRATULATIONS! Because of your age, you receive a ' + minor_descount_rate + '% reduction on this regular fare.');
     document.getElementById('descount-rate').innerHTML = ('CONGRATULATIONS! Because of your age, you receive a ' + minor_descount_rate + '% reduction on this regular fare.');
+    document.getElementById('descount-to-apply').innerHTML = ('The descount on your journey is ' + descount + ' €.');
   } else if (user_age > 65) {
     // Senior descount message
     console.log('CONGRATULATIONS! Because of your age, you receive a ' + senior_descount_rate + '% reduction on this regular fare.')
     document.getElementById('descount-rate').innerHTML = ('CONGRATULATIONS! Because of your age, you receive a ' + senior_descount_rate + '% reduction on this regular fare.');
+    document.getElementById('descount-to-apply').innerHTML = ('The descount on your journey is ' + descount + ' €.');
   } else {
     // No descount message
     console.log('Unfortunately there are no reductions on this regular fare for yor age group.');
