@@ -13,25 +13,24 @@ console.log('The \'user_age\' data is a ' + typeof(user_age) + '.');
 
 // ******************** Ticket Price Calculation ********************
 // Regular fare
-var ticket_price = (fare_per_km * trip_length);
+var ticket_price = fare_per_km * trip_length;
 
 if (!isNaN(user_age) && !isNaN(trip_length) && (trip_length > 0) && (user_age > 0)) {
   if (user_age < 18) {
     // Minor discount fare
     var discount = ((ticket_price * minor_discount_rate) / 100);
     discount = Math.round(discount * 100) / 100; //Rounding off to two figures
-    ticket_price = ticket_price - discount;
-    ticket_price = Math.round(ticket_price * 100) / 100; //Rounding off to two figures
+    ticket_price = Math.round((ticket_price - discount) * 100) / 100; //Rounding off to two figures
     console.log('The user is a Minor and receives a ' + minor_discount_rate + '% reduction on the regular fare.');
   } else if (user_age > 65) {
     // Senior discount fare
     var discount = ((ticket_price * senior_discount_rate) / 100);
     discount = Math.round(discount * 100) / 100; //Rounding off to two figures
-    ticket_price = ticket_price - discount;
-    ticket_price = Math.round(ticket_price * 100) / 100; //Rounding off to two figures
+    ticket_price = Math.round((ticket_price - discount) * 100) / 100; //Rounding off to two figures
     console.log('The user is a Senior and receives a ' + senior_discount_rate + '% reduction on the regular fare.');
   } else {
     // Regular fare message
+    ticket_price = Math.round((fare_per_km * trip_length) * 100) / 100;
     console.log('The user has no reduction on the regular fare.');
   }
 } else {
