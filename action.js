@@ -24,7 +24,7 @@ if (!isNaN(user_age) && !isNaN(trip_length) && (trip_length > 0) && (user_age > 
     console.log('The user is a Minor and receives a ' + minor_discount_rate + '% reduction on the regular fare.');
   } else if (user_age > 65) {
     // Senior discount fare
-    var discount = ((ticket_price * senior_discount_rate) / 100);
+    discount = ((ticket_price * senior_discount_rate) / 100);
     discount = Math.round(discount * 100) / 100; //Rounding off to two figures
     ticket_price = Math.round((ticket_price - discount) * 100) / 100; //Rounding off to two figures
     console.log('The user is a Senior and receives a ' + senior_discount_rate + '% reduction on the regular fare.');
